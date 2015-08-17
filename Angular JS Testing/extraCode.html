@@ -1,0 +1,33 @@
+
+	<div data-ng-controller = "MyController">
+		Name: 
+		<br />
+		<input type = "text" data-ng-model = "keyword"/> {{ keyword }}
+		<br />
+			<ul>
+				<li data-ng-repeat = "tweet in tweets | filter:keyword | orderBy:'id'"> {{ tweet.text}} - {{ tweet.id }}</li>
+			</ul>
+	</div>
+			controllers.MyController = function($scope)
+			{
+				$scope.tweets = [
+					{text:'#trump', id:'125547876'}, 
+					{text:'#thanksObama', id:'587425268'}, 
+					{text:'#closeFCPS', id:'547125871'}
+				];
+			};
+			demoApp.controller(controllers);
+
+<div data-ng-controller = "SimpleController">
+		Name: 
+		<br />
+		<input type = "text" data-ng-model = "name"/> {{ name }}
+		<br />
+			<ul>
+				<li data-ng-repeat = "cust in customers | filter:name | orderBy:'city'"> {{ cust.name | uppercase }} - {{ cust.city | lowercase}}</li>
+			</ul>
+	</div>
+
+
+
+demoApp.config(['$routeProvider', function ($routeProvider)
